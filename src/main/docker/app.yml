@@ -1,0 +1,27 @@
+#-------------------------------------------------------------------------------
+# Note for using the rate-limiting:
+#   The comment part won't be copied if you use the subgenerator docker-compose
+#   you have to manually copy it
+#-------------------------------------------------------------------------------
+version: '2'
+services:
+    isystemdashboard-app:
+        image: isystemdashboard
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@isystemdashboard-oracle:1521:iSystemDashboard
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=isystemdashboard-cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the Cassandra cluster to start and execute the migration scripts
+        ports:
+            - 8080:8080
+    # Uncomment to have Cassandra working with the gateway
+    # isystemdashboard-cassandra:
+    #     extends:
+    #         file: cassandra-cluster.yml
+    #         service: isystemdashboard-cassandra
+    # isystemdashboard-cassandra-migration:
+    #     extends:
+    #         file: cassandra-migration.yml
+    #         service: isystemdashboard-cassandra-migration
+    #     environment:
+    #         - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
