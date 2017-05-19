@@ -140,7 +140,13 @@ repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/releases' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url 'http://repo.maven.apache.org/maven2' }
-    maven { url "https://maven.oracle.com" }
+    maven { 
+      url "https://www.oracle.com/content/secure/maven/content"
+      credentials {
+         username 'danielpoa.rs@gmail.com'
+         password 'C0m32youMakar0v'
+      } 
+    }
 }
 
 dependencies {

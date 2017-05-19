@@ -28,9 +28,12 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/isystemdashboard;DB_CLOSE_DELAY=-1
-        username: iSystemDashboard
-        password:
+#        url: jdbc:h2:file:./target/h2db/db/isystemdashboard;DB_CLOSE_DELAY=-1
+#        username: iSystemDashboard
+#        password:
+        url: jdbc:oracle:thin:@localhost:1521:xe
+        username: nethitz
+        password: oinotn@08
     h2:
         console:
             enabled: false
