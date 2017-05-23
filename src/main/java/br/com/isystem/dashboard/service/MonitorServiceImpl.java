@@ -24,36 +24,37 @@ public class MonitorServiceImpl implements MonitorService {
 
 	private final Logger log = LoggerFactory.getLogger(MonitorServiceImpl.class);
 
-	@Autowired
-	private GrupoRepository grupoRepository;
+//	@Autowired
+//	private GrupoRepository grupoRepository;
 
 	@Override
-	public Page<GrupoDTO> buscarAllGroups(Pageable pageable) {
-		List<Grupo> all = this.grupoRepository.findAll();
-		if (CollectionUtils.isEmpty(all)) {
-			if (log.isDebugEnabled()) {
-				log.debug("grupos not found!");
-			}
-			return null;
-		}
-
-		final ArrayList<GrupoDTO> dtos = new ArrayList<GrupoDTO>();
-
-		all.stream().map(grupo -> {
-			GrupoDTO dto = new GrupoDTO();
-			dto.setIdGrupo(grupo.getIdGrupo());
-			dto.setHdCol1(grupo.getHdCol1());
-			dto.setHdCol2(grupo.getHdCol2());
-			dto.setHdCol3(grupo.getHdCol3());
-			dto.setHdCol4(grupo.getHdCol4());
-			dto.setHdCol5(grupo.getHdCol5());
-			dto.setNmGrupo(grupo.getNmGrupo());
-			dto.setQtCol(grupo.getQtCol());
-			dto.setSgGrupo(dto.getSgGrupo());
-			return dto;
-		}).forEach(dto -> dtos.add(dto));
-		;
-
-		return new PageImpl<GrupoDTO>(dtos);
+	public Page<GrupoDTO> getAllGroups(Pageable pageable) {
+//		List<Grupo> all = this.grupoRepository.findAll();
+//		if (CollectionUtils.isEmpty(all)) {
+//			if (log.isDebugEnabled()) {
+//				log.debug("grupos not found!");
+//			}
+//			return null;
+//		}
+//
+//		final ArrayList<GrupoDTO> dtos = new ArrayList<GrupoDTO>();
+//
+//		all.stream().map(grupo -> {
+//			GrupoDTO dto = new GrupoDTO();
+//			dto.setIdGrupo(grupo.getIdGrupo());
+//			dto.setHdCol1(grupo.getHdCol1());
+//			dto.setHdCol2(grupo.getHdCol2());
+//			dto.setHdCol3(grupo.getHdCol3());
+//			dto.setHdCol4(grupo.getHdCol4());
+//			dto.setHdCol5(grupo.getHdCol5());
+//			dto.setNmGrupo(grupo.getNmGrupo());
+//			dto.setQtCol(grupo.getQtCol());
+//			dto.setSgGrupo(dto.getSgGrupo());
+//			return dto;
+//		}).forEach(dto -> dtos.add(dto));
+//		;
+//
+//		return new PageImpl<GrupoDTO>(dtos);
+		return null;
 	}
 }

@@ -1,14 +1,14 @@
 package br.com.isystem.dashboard.config;
 
-import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.liquibase.AsyncSpringLiquibase;
+import java.sql.SQLException;
 
-import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
-import liquibase.integration.spring.SpringLiquibase;
+import javax.sql.DataSource;
+
 import org.h2.tools.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +19,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
-import java.sql.SQLException;
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+
+import io.github.jhipster.config.JHipsterConstants;
+import io.github.jhipster.config.liquibase.AsyncSpringLiquibase;
+import liquibase.integration.spring.SpringLiquibase;
 
 @Configuration
-@EnableJpaRepositories("br.com.isystem.dashboard.repository")
+@EnableJpaRepositories(basePackages = {"br.com.isystem.dashboard.repository"})
+@EntityScan(basePackages = {"br.com.isystem.dashboard.domain"})
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 public class DatabaseConfiguration {

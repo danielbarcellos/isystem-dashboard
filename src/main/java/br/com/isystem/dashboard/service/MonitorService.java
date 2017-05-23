@@ -7,5 +7,5 @@ import br.com.isystem.dashboard.service.dto.GrupoDTO;
 
 public interface MonitorService {
 
-	Page<GrupoDTO> buscarAllGroups(Pageable pageable);
+	Page<GrupoDTO> getAllGroups(Pageable pageable);
 }
