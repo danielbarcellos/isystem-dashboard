@@ -140,13 +140,9 @@ repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/releases' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url 'http://repo.maven.apache.org/maven2' }
-    maven { 
-      url "https://www.oracle.com/content/secure/maven/content"
-      credentials {
-         username 'danielpoa.rs@gmail.com'
-         password 'C0m32youMakar0v'
-      } 
-    }
+    flatDir {
+       dirs 'C:\\_Dashboard\\jars'
+   }
 }
 
 dependencies {
@@ -226,8 +222,13 @@ dependencies {
     testCompile "org.mockito:mockito-core"
     testCompile "com.mattbertolini:liquibase-slf4j:${liquibase_slf4j_version}"
     testCompile "org.hamcrest:hamcrest-library"
+    
     // more information at https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc
-    compile "com.oracle.jdbc:ojdbc7:${oracle_version}"
+    //compile "com.oracle.jdbc:ojdbc7:${oracle_version}"
+    // https://mvnrepository.com/artifact/com.oracle/ojdbc6
+    compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.1-atlassian-hosted'
+    
+    
     optional "org.springframework.boot:spring-boot-configuration-processor:${spring_boot_version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
