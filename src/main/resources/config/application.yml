@@ -15,6 +15,10 @@
 # ===================================================================
 
 zuul:
+    routes:
+      iSystemDashboard:
+         path: /grupos
+         url: http://localhost:8081/api/monitor
     host:
         connect-timeout-millis: 5000
         socket-timeout-millis: 10000
